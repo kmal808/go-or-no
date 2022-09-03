@@ -8,3 +8,13 @@ const updateSW = registerSW({
 });
 
 updateSW();
+
+const loginSubmitBtn = document.getElementById("login-submit-btn")
+if(loginSubmitBtn)
+{
+	// Add user handling logic here
+  loginSubmitBtn.onclick = () => {
+		
+    location.href=import.meta.env.PUBLIC_HOME_ROUTE
+  };
+}
