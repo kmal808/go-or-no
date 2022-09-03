@@ -5,5 +5,8 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig({
 	vite: {
 		plugins: [VitePWA()],
+		build: {
+			sourcemap: true
+		}
 	},
 });
