@@ -6,5 +6,6 @@
 4. Run `npm run dev`
 
 # To Format:
+
 1. `npm install`
 2. `npm run format`
