@@ -3,14 +3,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <h1>Welcome to Go 👍 or 👎 No</h1>
-  <h2>Please login or sign up to continue</h2>
-  <h3>Login</h3>
+  <h1>Go 👍 or 👎 No</h1>
+  <h2>Complete the form below to sign up</h2>
+  <h3>Sign up</h3>
   <form>
+    <input type="text" placeholder="Username" />
     <input type="email" placeholder="Email" />
     <input type="password" placeholder="Password" />
+    <input type="password" placeholder="Confirm password" />
     <button id="login-submit-btn">Submit</button>
   </form>
-  <h3><a href="/signup">Go to sign up</a></h3>
+  <h3><a href="/">Go Back</a></h3>
   <script src="/src/index.ts"></script>
 </BaseLayout>
