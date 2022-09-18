@@ -1,4 +1,4 @@
-import { ALA_MOANA_PARK_SPOT, waveURL } from "./apiRoutes";
+import { ALA_MOANA_PARK_SPOT, ratingURL, waveURL } from "./apiRoutes";
 
 interface Surf {
   min: number;
@@ -27,6 +27,16 @@ interface SurfLineWaveData {
   data: { wave: Wave[] };
 }
 
+interface Rating {
+  timestamp: number;
+  utcOffset: number;
+  rating: { key: string; value: number };
+}
+
+interface SurfLineRatingData {
+  data: { rating: Rating[] };
+}
+
 export default function request<T>(
   url: string,
   config: RequestInit = {}
@@ -35,6 +45,10 @@ export default function request<T>(
 }
 
 const waveData = await request<SurfLineWaveData>(waveURL(ALA_MOANA_PARK_SPOT));
+
+const ratingData = await request<SurfLineRatingData>(
+  ratingURL(ALA_MOANA_PARK_SPOT)
+);
 
 if (waveData && waveData.data) {
   const firstWave = waveData.data.wave[0];
@@ -50,4 +64,12 @@ if (waveData && waveData.data) {
   humanRelation?.appendChild(humanRelationText);
   minScore?.appendChild(minScoreText);
   maxScore?.appendChild(maxScoreText);
+}
+
+if (ratingData && ratingData.data) {
+  const firstRating = ratingData.data.rating[0];
+  const rating = document.getElementById("rating");
+  const ratingText = document.createElement("p");
+  ratingText.innerText = firstRating.rating.key;
+  rating?.appendChild(ratingText);
 }
