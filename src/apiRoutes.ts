@@ -17,7 +17,7 @@ export const tidesURL = (spotID: string) => {
 };
 
 export const weatherURL = (spotID: string) => {
-  return `${globalURL}tides?spotId=${spotID}&days=16&intervalHours=1`;
+  return `${globalURL}weather?spotId=${spotID}&days=16&intervalHours=1`;
 };
 
 export const ALA_MOANA_PARK_SPOT = "5842041f4e65fad6a770889c";
