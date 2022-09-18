@@ -1,3 +1,5 @@
+import { ALA_MOANA_PARK_SPOT, waveURL } from "./apiRoutes";
+
 interface Surf {
   min: number;
   max: number;
@@ -32,9 +34,7 @@ export default function request<T>(
   return fetch(url, config).then((response) => response.json());
 }
 
-const waveData = await request<SurfLineWaveData>(
-  "https://services.surfline.com/kbyg/spots/forecasts/wave?spotId=5842041f4e65fad6a770889c&days=16&intervalHours=1"
-);
+const waveData = await request<SurfLineWaveData>(waveURL(ALA_MOANA_PARK_SPOT));
 
 if (waveData && waveData.data) {
   const firstWave = waveData.data.wave[0];
@@ -51,14 +51,3 @@ if (waveData && waveData.data) {
   minScore?.appendChild(minScoreText);
   maxScore?.appendChild(maxScoreText);
 }
-
-// rating url:
-// https://services.surfline.com/kbyg/spots/forecasts/rating?spotId=5842041f4e65fad6a770889c&days=16&intervalHours=1&correctedWind=false
-
-// wind url:
-// https://services.surfline.com/kbyg/spots/forecasts/wind?spotId=5842041f4e65fad6a770889c&days=16&intervalHours=1&corrected=false
-
-// tides url:
-// https://services.surfline.com/kbyg/spots/forecasts/tides?spotId=5842041f4e65fad6a770889c&days=16
-// weather url:
-// https://services.surfline.com/kbyg/spots/forecasts/weather?spotId=5842041f4e65fad6a770889c&days=16&intervalHours=1
