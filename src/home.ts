@@ -7,6 +7,27 @@ import {
   windURL,
 } from "./apiRoutes";
 
+interface Associated {
+  forecastLocation: Location;
+  location: Location;
+  offshoreLocation: Location;
+  units: Units;
+  utcOffset: number;
+}
+
+interface Location {
+  lat: number;
+  lon: number;
+}
+
+interface Units {
+  swellHeight: string;
+  temperature: string;
+  tideHeight: string;
+  waveHeight: string;
+  windSpeed: string;
+}
+
 interface Surf {
   min: number;
   max: number;
