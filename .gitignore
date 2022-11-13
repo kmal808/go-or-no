@@ -38,4 +38,4 @@ next-env.d.ts
 #? This ↯ can be removed if it's prefered to have the vscode settings be the same for everyone
 #? For now I'm adding it to the .gitignore with the reason of separation of concerns
 #! vscode project settings and extensions
-.vscode
+.vscode/settings.json
